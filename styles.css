@@ -23,6 +23,7 @@
   --shadow: rgba(0, 0, 0, 0.3);
   --input-bg: #1e293b;
   --hsla-example: hsla(210, 100%, 56%, 1);
+  --border-white: #cbd5e1
 }
 
 
@@ -164,7 +165,7 @@ main > section:nth-child(1) {
 
 /* Formulario de Búsqueda */
 form {
-  max-width: 42rem;
+  max-width: 50rem;
   width: 100%;
   margin: 0 auto;
   padding-inline: 1rem;
@@ -201,6 +202,12 @@ form input[type="text"] {
 
 form input[type="text"]::placeholder {
   color: #64748b;
+}
+
+.border-input {
+  border: 1px solid var(--border-white);
+  border-radius: 0.5rem;
+  padding-left: 0.75rem;
 }
 
 form button[type="submit"] {
@@ -332,4 +339,56 @@ article {
   h3 {
     font-weight: 500;
   }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.select-pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  justify-content: flex-start; /* los alinea a la izquierda */
+}
+
+.select-pill-container select {
+  flex: 1 1 200px; /* ancho base 200px, puede crecer un poco */
+  max-width: 250px; /* evita que sean muy anchos */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: inherit;
+  font-size: 1rem;
+  min-width: 150px;
+}
+
+/* Efecto hover opcional */
+.select-pill-container select:hover {
+  background-color: var(--primary-hover, #005fcc);
+}
+
+/* 💻 Media query: cuando el ancho es menor a 900px */
+@media (max-width: 900px) {
+  .select-pill-container select {
+    flex: 1 1 calc(33.333% - 1rem); /* 3 por fila */
+  }
+}
+
+/* 📱 Más pequeño: en móviles se apilan */
+@media (max-width: 600px) {
+  .select-pill-container select {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+}
+
+.job-listings {
+  max-width: 1280px;
 }
